@@ -1,7 +1,10 @@
 {
   "cleanUrls": true,
   "redirects": [
-    { "source": "/", "destination": "/prihlaska" },
-    { "source": "https://www.jakubvyhnalik.cz/:path*", "destination": "https://jakubvyhnalik.cz/:path*", "permanent": true }
+    { "source": "/", "destination": "/prihlaska" }
+  ],
+  "rewrites": [
+    { "source": "/prihlaska", "destination": "/prihlaska.html" },
+    { "source": "/pruvodce", "destination": "/pruvodce.html" }
   ]
 }
