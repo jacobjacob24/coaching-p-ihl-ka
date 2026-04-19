@@ -18,6 +18,7 @@
       --bg-card: #141414;
       --bg-lift: #1a1a1a;
       --w100: #ffffff;
+      --w80: rgba(255,255,255,0.8);
       --w60: rgba(255,255,255,0.6);
       --w40: rgba(255,255,255,0.4);
       --w20: rgba(255,255,255,0.2);
@@ -29,659 +30,174 @@
     }
 
     html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--w100);
-      font-family: var(--body);
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.7;
-    }
-
+    body { background: var(--bg); color: var(--w100); font-family: var(--body); -webkit-font-smoothing: antialiased; line-height: 1.7; }
     a { color: var(--gold); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* ── TOP NAV ── */
     .topnav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       background: rgba(15,15,15,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 0.5px solid var(--w06);
       padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      display: flex; align-items: center; justify-content: space-between;
       height: 56px;
     }
 
-    .nav-logo {
-      font-family: var(--sans);
-      font-weight: 800;
-      font-size: 13px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--w100);
-      text-decoration: none;
-    }
+    .nav-logo { font-family: var(--sans); font-weight: 800; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--w100); text-decoration: none; }
 
     .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--gold);
-      color: #0f0f0f;
-      font-family: var(--sans);
-      font-weight: 700;
-      font-size: 12px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 8px 16px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: opacity 0.2s;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold); color: #0f0f0f;
+      font-family: var(--sans); font-weight: 700; font-size: 12px;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 8px 16px; border-radius: 8px; text-decoration: none; transition: opacity 0.2s;
     }
 
     .nav-cta:hover { opacity: 0.88; text-decoration: none; }
 
-    /* ── LAYOUT ── */
-    .page {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 60px 24px 100px;
+    @media (max-width: 600px) {
+      .nav-cta { font-size: 10px; padding: 7px 11px; letter-spacing: 0.04em; }
+      .nav-logo { font-size: 11px; }
     }
 
-    /* ── HERO ── */
-    .hero {
-      margin-bottom: 64px;
-    }
+    .page { max-width: 720px; margin: 0 auto; padding: 60px 24px 100px; }
 
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: var(--gold-dim);
-      border: 0.5px solid var(--gold-border);
-      border-radius: 100px;
-      padding: 5px 13px;
-      margin-bottom: 24px;
-    }
+    .hero { margin-bottom: 64px; }
 
-    .hero-badge-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-    }
+    .hero-badge { display: inline-flex; align-items: center; gap: 7px; background: var(--gold-dim); border: 0.5px solid var(--gold-border); border-radius: 100px; padding: 5px 13px; margin-bottom: 24px; }
+    .hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+    .hero-badge span { font-size: 11px; font-weight: 600; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-family: var(--sans); }
 
-    .hero-badge span {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--gold);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-family: var(--sans);
-    }
+    .hero h1 { font-family: var(--sans); font-weight: 800; font-size: clamp(32px, 5vw, 48px); line-height: 1.1; letter-spacing: -0.03em; color: var(--w100); margin-bottom: 20px; }
+    .hero h1 em { font-style: normal; color: var(--gold); }
+    .hero-desc { font-size: 17px; color: var(--w80); line-height: 1.7; font-weight: 300; max-width: 560px; margin-bottom: 32px; }
 
-    .hero h1 {
-      font-family: var(--sans);
-      font-weight: 800;
-      font-size: clamp(32px, 5vw, 48px);
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      color: var(--w100);
-      margin-bottom: 20px;
-    }
-
-    .hero h1 em {
-      font-style: normal;
-      color: var(--gold);
-    }
-
-    .hero-desc {
-      font-size: 17px;
-      color: var(--w60);
-      line-height: 1.7;
-      font-weight: 300;
-      max-width: 560px;
-      margin-bottom: 32px;
-    }
-
-    /* ── TABLE OF CONTENTS ── */
-    .toc {
-      background: var(--bg-card);
-      border: 0.5px solid var(--w10);
-      border-radius: 14px;
-      padding: 24px 28px;
-      margin-bottom: 64px;
-    }
-
-    .toc-title {
-      font-family: var(--sans);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--w40);
-      margin-bottom: 16px;
-    }
-
-    .toc-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .toc-list li a {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--w60);
-      font-size: 14px;
-      font-weight: 400;
-      transition: color 0.2s;
-      text-decoration: none;
-    }
-
+    .toc { background: var(--bg-card); border: 0.5px solid var(--w10); border-radius: 14px; padding: 24px 28px; margin-bottom: 64px; }
+    .toc-title { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--w60); margin-bottom: 16px; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .toc-list li a { display: flex; align-items: center; gap: 12px; color: var(--w80); font-size: 14px; font-weight: 400; transition: color 0.2s; text-decoration: none; }
     .toc-list li a:hover { color: var(--gold); }
+    .toc-num { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--gold); background: var(--gold-dim); border-radius: 5px; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 
-    .toc-num {
-      font-family: var(--sans);
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--gold);
-      background: var(--gold-dim);
-      border-radius: 5px;
-      width: 22px; height: 22px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
+    .section { margin-bottom: 72px; }
+    .section-label { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+    .section-num { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--gold); background: var(--gold-dim); border: 0.5px solid var(--gold-border); border-radius: 6px; padding: 3px 8px; letter-spacing: 0.08em; }
+    .section-line { flex: 1; height: 0.5px; background: var(--w06); }
 
-    /* ── SECTIONS ── */
-    .section {
-      margin-bottom: 72px;
-    }
+    .section h2 { font-family: var(--sans); font-weight: 800; font-size: 26px; letter-spacing: -0.02em; color: var(--w100); margin-bottom: 16px; line-height: 1.2; }
+    .section h3 { font-family: var(--sans); font-weight: 700; font-size: 17px; color: var(--w100); margin: 28px 0 10px; }
+    .section p { font-size: 15px; color: var(--w80); line-height: 1.75; margin-bottom: 14px; }
+    .section p strong { color: var(--w100); font-weight: 500; }
+    .section ul, .section ol { padding-left: 20px; margin: 12px 0 16px; display: flex; flex-direction: column; gap: 8px; }
+    .section li { font-size: 15px; color: var(--w80); line-height: 1.65; }
+    .section li strong { color: var(--w100); font-weight: 500; }
 
-    .section-label {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
+    .steps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+    .step-card { background: var(--bg-lift); border: 0.5px solid var(--w10); border-radius: 12px; padding: 18px 20px; }
+    .step-card-num { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--gold); margin-bottom: 6px; letter-spacing: 0.06em; }
+    .step-card-title { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--w100); margin-bottom: 6px; }
+    .step-card-text { font-size: 13px; color: var(--w80); line-height: 1.6; }
 
-    .section-num {
-      font-family: var(--sans);
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--gold);
-      background: var(--gold-dim);
-      border: 0.5px solid var(--gold-border);
-      border-radius: 6px;
-      padding: 3px 8px;
-      letter-spacing: 0.08em;
-    }
-
-    .section-line {
-      flex: 1;
-      height: 0.5px;
-      background: var(--w06);
-    }
-
-    .section h2 {
-      font-family: var(--sans);
-      font-weight: 800;
-      font-size: 26px;
-      letter-spacing: -0.02em;
-      color: var(--w100);
-      margin-bottom: 16px;
-      line-height: 1.2;
-    }
-
-    .section h3 {
-      font-family: var(--sans);
-      font-weight: 700;
-      font-size: 17px;
-      color: var(--w100);
-      margin: 28px 0 10px;
-    }
-
-    .section p {
-      font-size: 15px;
-      color: var(--w60);
-      line-height: 1.75;
-      margin-bottom: 14px;
-    }
-
-    .section p strong {
-      color: rgba(255,255,255,0.85);
-      font-weight: 500;
-    }
-
-    .section ul, .section ol {
-      padding-left: 20px;
-      margin: 12px 0 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .section li {
-      font-size: 15px;
-      color: var(--w60);
-      line-height: 1.65;
-    }
-
-    .section li strong {
-      color: rgba(255,255,255,0.85);
-      font-weight: 500;
-    }
-
-    /* ── STEP CARDS ── */
-    .steps-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin: 20px 0;
-    }
-
-    .step-card {
-      background: var(--bg-lift);
-      border: 0.5px solid var(--w10);
-      border-radius: 12px;
-      padding: 18px 20px;
-    }
-
-    .step-card-num {
-      font-family: var(--sans);
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--gold);
-      margin-bottom: 6px;
-      letter-spacing: 0.06em;
-    }
-
-    .step-card-title {
-      font-family: var(--sans);
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--w100);
-      margin-bottom: 6px;
-    }
-
-    .step-card-text {
-      font-size: 13px;
-      color: var(--w40);
-      line-height: 1.6;
-    }
-
-    /* ── HIGHLIGHT BOX ── */
-    .highlight {
-      background: var(--gold-dim);
-      border: 0.5px solid var(--gold-border);
-      border-radius: 12px;
-      padding: 20px 22px;
-      margin: 24px 0;
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-
-    .highlight-icon {
-      font-size: 18px;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .highlight-body p {
-      font-size: 14px;
-      color: rgba(255,255,255,0.75);
-      margin-bottom: 6px;
-      line-height: 1.65;
-    }
-
+    .highlight { background: var(--gold-dim); border: 0.5px solid var(--gold-border); border-radius: 12px; padding: 20px 22px; margin: 24px 0; display: flex; gap: 14px; align-items: flex-start; }
+    .highlight-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+    .highlight-body p { font-size: 14px; color: var(--w80); margin-bottom: 6px; line-height: 1.65; }
     .highlight-body p:last-child { margin-bottom: 0; }
+    .highlight-body strong { color: var(--w100); font-weight: 600; }
 
-    .highlight-body strong {
-      color: var(--w100);
-      font-weight: 600;
-    }
+    .img-placeholder { width: 100%; background: var(--bg-lift); border: 0.5px dashed var(--w20); border-radius: 12px; height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin: 20px 0; }
+    .img-placeholder-icon { font-size: 28px; opacity: 0.3; }
+    .img-placeholder-text { font-size: 12px; color: var(--w40); letter-spacing: 0.04em; }
 
-    /* ── STAT BOX ── */
-    .stat-row {
-      display: flex;
-      gap: 12px;
-      margin: 20px 0;
-      flex-wrap: wrap;
-    }
+    .tool-list { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
 
-    .stat-box {
-      background: var(--bg-lift);
-      border: 0.5px solid var(--w10);
-      border-radius: 10px;
-      padding: 16px 20px;
-      flex: 1;
-      min-width: 140px;
-    }
+    .tool-card { display: flex; align-items: center; gap: 14px; background: var(--bg-lift); border: 0.5px solid var(--w10); border-radius: 10px; padding: 14px 18px; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+    .tool-card:hover { border-color: var(--gold-border); background: var(--gold-dim); text-decoration: none; }
+    .tool-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--gold-dim); border: 0.5px solid var(--gold-border); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .tool-info-name { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--w100); }
+    .tool-info-desc { font-size: 12px; color: var(--w60); margin-top: 2px; }
+    .tool-arrow { margin-left: auto; color: var(--w40); font-size: 14px; }
 
-    .stat-num {
-      font-family: var(--sans);
-      font-weight: 800;
-      font-size: 24px;
-      color: var(--gold);
-      letter-spacing: -0.02em;
-      margin-bottom: 4px;
-    }
+    .tool-card-expanded { background: var(--bg-lift); border: 0.5px solid var(--w10); border-radius: 10px; padding: 16px 18px; margin-bottom: 10px; }
+    .tool-card-expanded-header { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+    .tool-card-body { font-size: 13px; color: var(--w80); line-height: 1.7; padding-left: 50px; }
+    .tool-card-body p { margin-bottom: 8px; color: var(--w80); font-size: 13px; }
+    .tool-card-body p:last-child { margin-bottom: 0; }
+    .tool-card-body a { color: var(--gold); }
 
-    .stat-label {
-      font-size: 12px;
-      color: var(--w40);
-    }
+    .bonus-box { background: rgba(232,201,122,0.06); border: 0.5px solid var(--gold-border); border-radius: 8px; padding: 12px 16px; margin-top: 10px; font-size: 13px; color: var(--w80); line-height: 1.65; }
+    .bonus-label { font-family: var(--sans); font-size: 10px; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
 
-    /* ── IMAGE PLACEHOLDER ── */
-    .img-placeholder {
-      width: 100%;
-      background: var(--bg-lift);
-      border: 0.5px dashed var(--w20);
-      border-radius: 12px;
-      height: 220px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin: 20px 0;
-    }
+    .checklist { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+    .check-item { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--w80); }
+    .check-icon { width: 20px; height: 20px; border-radius: 50%; background: rgba(100,200,120,0.12); border: 0.5px solid rgba(100,200,120,0.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 11px; margin-top: 2px; }
 
-    .img-placeholder-icon {
-      font-size: 28px;
-      opacity: 0.3;
-    }
+    .badge-inline { background: var(--gold-dim); border: 0.5px solid var(--gold-border); border-radius: 8px; padding: 14px 18px; margin: 16px 0; width: 100%; }
+    .badge-inline-title { font-family: var(--sans); font-size: 13px; font-weight: 700; color: var(--gold); margin-bottom: 10px; }
+    .badge-inline ol { padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+    .badge-inline li { font-size: 13px; color: var(--w80); line-height: 1.6; }
+    .badge-inline a { color: var(--gold); }
 
-    .img-placeholder-text {
-      font-size: 12px;
-      color: var(--w20);
-      letter-spacing: 0.04em;
-    }
+    .cta-block { background: var(--bg-card); border: 0.5px solid var(--gold-border); border-radius: 16px; padding: 32px; margin: 40px 0; text-align: center; }
+    .cta-block h3 { font-family: var(--sans); font-weight: 800; font-size: 22px; letter-spacing: -0.02em; color: var(--w100); margin-bottom: 10px; }
+    .cta-block p { font-size: 15px; color: var(--w60); margin-bottom: 24px; line-height: 1.65; }
 
-    /* ── TOOL CARD ── */
-    .tool-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin: 16px 0;
-    }
-
-    .tool-card {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      background: var(--bg-lift);
-      border: 0.5px solid var(--w10);
-      border-radius: 10px;
-      padding: 14px 18px;
-      text-decoration: none;
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .tool-card:hover {
-      border-color: var(--gold-border);
-      background: var(--gold-dim);
-      text-decoration: none;
-    }
-
-    .tool-icon {
-      width: 36px; height: 36px;
-      border-radius: 8px;
-      background: var(--gold-dim);
-      border: 0.5px solid var(--gold-border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px;
-      flex-shrink: 0;
-    }
-
-    .tool-info-name {
-      font-family: var(--sans);
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--w100);
-    }
-
-    .tool-info-desc {
-      font-size: 12px;
-      color: var(--w40);
-      margin-top: 2px;
-    }
-
-    .tool-arrow {
-      margin-left: auto;
-      color: var(--w20);
-      font-size: 14px;
-    }
-
-    /* ── CHECKLIST ── */
-    .checklist {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin: 16px 0;
-    }
-
-    .check-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 15px;
-      color: var(--w60);
-    }
-
-    .check-icon {
-      width: 20px; height: 20px;
-      border-radius: 50%;
-      background: rgba(100,200,120,0.12);
-      border: 0.5px solid rgba(100,200,120,0.3);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      font-size: 11px;
-    }
-
-    /* ── CTA BLOCK ── */
-    .cta-block {
-      background: var(--bg-card);
-      border: 0.5px solid var(--gold-border);
-      border-radius: 16px;
-      padding: 32px;
-      margin: 40px 0;
-      text-align: center;
-    }
-
-    .cta-block h3 {
-      font-family: var(--sans);
-      font-weight: 800;
-      font-size: 22px;
-      letter-spacing: -0.02em;
-      color: var(--w100);
-      margin-bottom: 10px;
-    }
-
-    .cta-block p {
-      font-size: 15px;
-      color: var(--w40);
-      margin-bottom: 24px;
-      line-height: 1.65;
-    }
-
-    .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--gold);
-      color: #0f0f0f;
-      font-family: var(--sans);
-      font-weight: 700;
-      font-size: 14px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      padding: 14px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: opacity 0.2s, transform 0.15s;
-    }
-
+    .cta-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: #0f0f0f; font-family: var(--sans); font-weight: 700; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; padding: 14px 28px; border-radius: 10px; text-decoration: none; transition: opacity 0.2s, transform 0.15s; }
     .cta-btn:hover { opacity: 0.88; transform: translateY(-1px); text-decoration: none; }
 
-    /* ── DIVIDER ── */
-    .divider {
-      height: 0.5px;
-      background: var(--w06);
-      margin: 48px 0;
-    }
+    .divider { height: 0.5px; background: var(--w06); margin: 48px 0; }
 
-    /* ── FAQ ── */
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .faq-item {
-      border-bottom: 0.5px solid var(--w06);
-    }
-
-    .faq-item:first-child {
-      border-top: 0.5px solid var(--w06);
-    }
-
-    .faq-q {
-      width: 100%;
-      background: none;
-      border: none;
-      color: var(--w100);
-      font-family: var(--sans);
-      font-size: 15px;
-      font-weight: 600;
-      text-align: left;
-      padding: 20px 0;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      transition: color 0.2s;
-    }
-
+    .faq-list { display: flex; flex-direction: column; gap: 0; }
+    .faq-item { border-bottom: 0.5px solid var(--w06); }
+    .faq-item:first-child { border-top: 0.5px solid var(--w06); }
+    .faq-q { width: 100%; background: none; border: none; color: var(--w100); font-family: var(--sans); font-size: 15px; font-weight: 600; text-align: left; padding: 20px 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; transition: color 0.2s; }
     .faq-q:hover { color: var(--gold); }
-
-    .faq-arrow {
-      font-size: 12px;
-      color: var(--w40);
-      transition: transform 0.25s;
-      flex-shrink: 0;
-    }
-
+    .faq-arrow { font-size: 12px; color: var(--w40); transition: transform 0.25s; flex-shrink: 0; }
     .faq-item.open .faq-arrow { transform: rotate(180deg); }
-
-    .faq-a {
-      display: none;
-      padding-bottom: 20px;
-      font-size: 14px;
-      color: var(--w60);
-      line-height: 1.75;
-    }
-
-    .faq-a strong { color: rgba(255,255,255,0.85); font-weight: 500; }
-    .faq-a em { color: var(--w60); font-style: italic; }
+    .faq-a { display: none; padding-bottom: 20px; font-size: 14px; color: var(--w80); line-height: 1.75; }
+    .faq-a strong { color: var(--w100); font-weight: 500; }
+    .faq-a em { color: var(--w80); font-style: italic; }
     .faq-a a { color: var(--gold); }
-
     .faq-item.open .faq-a { display: block; }
 
-    /* ── RESOURCES ── */
-    .resource-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .resource-card {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      background: var(--bg-lift);
-      border: 0.5px solid var(--w10);
-      border-radius: 10px;
-      padding: 16px 18px;
-      text-decoration: none;
-      transition: border-color 0.2s;
-    }
-
+    .resource-list { display: flex; flex-direction: column; gap: 10px; }
+    .resource-card { display: flex; align-items: center; gap: 14px; background: var(--bg-lift); border: 0.5px solid var(--w10); border-radius: 10px; padding: 16px 18px; text-decoration: none; transition: border-color 0.2s; }
     .resource-card:hover { border-color: var(--gold-border); text-decoration: none; }
+    .resource-icon { font-size: 20px; }
+    .resource-label { font-size: 14px; font-weight: 500; color: var(--w100); }
+    .resource-arrow { margin-left: auto; color: var(--w40); font-size: 14px; }
 
-    .resource-icon {
-      font-size: 20px;
-    }
-
-    .resource-label {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--w100);
-    }
-
-    .resource-arrow {
-      margin-left: auto;
-      color: var(--w20);
-      font-size: 14px;
-    }
-
-    /* ── FOOTER ── */
-    .footer {
-      border-top: 0.5px solid var(--w06);
-      padding: 32px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    .footer-copy {
-      font-size: 12px;
-      color: var(--w20);
-    }
-
-    .footer-socials {
-      display: flex;
-      gap: 10px;
-    }
-
-    .footer-soc {
-      width: 30px; height: 30px;
-      border-radius: 7px;
-      background: var(--w04);
-      border: 0.5px solid var(--w10);
-      display: flex; align-items: center; justify-content: center;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-
+    .footer { border-top: 0.5px solid var(--w06); padding: 32px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; max-width: 720px; margin: 0 auto; }
+    .footer-copy { font-size: 12px; color: var(--w40); }
+    .footer-socials { display: flex; gap: 10px; }
+    .footer-soc { width: 30px; height: 30px; border-radius: 7px; background: var(--w04); border: 0.5px solid var(--w10); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background 0.2s; }
     .footer-soc:hover { background: var(--gold-dim); }
     .footer-soc:hover svg { fill: var(--gold); }
     .footer-soc svg { width: 13px; height: 13px; fill: var(--w40); transition: fill 0.2s; }
 
-    /* ── MOBILE ── */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
+    .modal-overlay.open { display: flex; }
+    .modal { background: #141414; border: 0.5px solid rgba(255,255,255,0.1); border-radius: 16px; width: 100%; max-width: 600px; max-height: 80vh; overflow: hidden; display: flex; flex-direction: column; }
+    .modal-header { padding: 20px 24px 16px; border-bottom: 0.5px solid rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+    .modal-title { font-family: var(--sans); font-weight: 800; font-size: 16px; color: var(--w100); }
+    .modal-close { width: 30px; height: 30px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 0.5px solid rgba(255,255,255,0.1); color: var(--w40); font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .modal-close:hover { background: rgba(255,255,255,0.12); }
+    .modal-body { padding: 20px 24px 24px; overflow-y: auto; }
+    .modal-copy-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: #0f0f0f; font-family: var(--sans); font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 10px 18px; border-radius: 8px; border: none; cursor: pointer; margin-bottom: 20px; transition: opacity 0.2s; }
+    .modal-copy-btn:hover { opacity: 0.88; }
+    .modal-content { font-size: 13px; color: var(--w80); line-height: 1.75; white-space: pre-wrap; background: var(--bg-lift); border: 0.5px solid var(--w10); border-radius: 10px; padding: 16px; }
+
     @media (max-width: 600px) {
       .steps-grid { grid-template-columns: 1fr; }
-      .stat-row { flex-direction: column; }
       .topnav { padding: 0 16px; }
       .page { padding: 40px 16px 80px; }
       .cta-block { padding: 24px 20px; }
+      .tool-card-body { padding-left: 0; }
     }
   </style>
 </head>
 <body>
 
-<!-- TOP NAV -->
 <nav class="topnav">
   <a href="https://jakubvyhnalik.cz" class="nav-logo">Jakub Vyhnalik</a>
   <a href="https://www.jakubvyhnalik.cz/prihlaska" class="nav-cta">Přihlásit se do coachingu →</a>
@@ -689,7 +205,6 @@
 
 <main class="page">
 
-  <!-- HERO -->
   <div class="hero">
     <div class="hero-badge">
       <div class="hero-badge-dot"></div>
@@ -697,189 +212,182 @@
     </div>
     <h1>Průvodce<br><em>Dropshippingem</em></h1>
     <p class="hero-desc">Vše co potřebuješ vědět pro rozjezd vlastního e-shopu — od výběru produktu přes tvorbu webu až po první reklamy.</p>
-
-    <div class="stat-row">
-      <div class="stat-box">
-        <div class="stat-num">432 392 Kč</div>
-        <div class="stat-label">za jeden měsíc s vlastní značkou</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">100 000 Kč</div>
-        <div class="stat-label">v prvním měsíci od nuly</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">14 dní</div>
-        <div class="stat-label">do první objednávky s coachingem</div>
-      </div>
-    </div>
   </div>
 
-  <!-- TOC -->
   <div class="toc">
     <div class="toc-title">Obsah průvodce</div>
     <ul class="toc-list">
-      <li><a href="#co-je-dropshipping"><span class="toc-num">1</span>Co je dropshipping a jak funguje</a></li>
-      <li><a href="#vyber-produktu"><span class="toc-num">2</span>Výběr produktu</a></li>
-      <li><a href="#eshop"><span class="toc-num">3</span>Tvorba e-shopu na Shopify</a></li>
-      <li><a href="#reklamy"><span class="toc-num">4</span>Placené reklamy</a></li>
-      <li><a href="#spusteni"><span class="toc-num">5</span>Spuštění kampaně</a></li>
-      <li><a href="#faq"><span class="toc-num">6</span>Nejčastější otázky a obavy</a></li>
+      <li><a href="#vyber-produktu"><span class="toc-num">1</span>Hledání a výběr produktu</a></li>
+      <li><a href="#analyza-konkurence"><span class="toc-num">2</span>Analýza konkurence</a></li>
+      <li><a href="#dodavatel"><span class="toc-num">3</span>Dodavatel</a></li>
+      <li><a href="#eshop"><span class="toc-num">4</span>Tvorba e-shopu na Shopify</a></li>
+      <li><a href="#reklamy"><span class="toc-num">5</span>Placené reklamy</a></li>
+      <li><a href="#spusteni"><span class="toc-num">6</span>Spuštění kampaně</a></li>
+      <li><a href="#faq"><span class="toc-num">7</span>Nejčastější otázky a obavy</a></li>
     </ul>
   </div>
 
-  <!-- SECTION 1 -->
-  <div class="section" id="co-je-dropshipping">
-    <div class="section-label">
-      <span class="section-num">01</span>
-      <div class="section-line"></div>
-    </div>
-    <h2>Co je dropshipping a jak funguje</h2>
-    <p>Dropshipping je způsob prodeje, kdy <strong>nepotřebuješ žádný sklad ani vlastní produkt</strong>. Prodáváš produkty, které fyzicky drží dodavatel — a zákazníkovi je posíláš přímo od něj.</p>
-    <p>Tvůj úkol je vytvořit e-shop, přilákat zákazníky a zajistit skvělý zážitek. O zbytek se stará dodavatel.</p>
+  <!-- 01 — VÝBĚR PRODUKTU -->
+  <div class="section" id="vyber-produktu">
+    <div class="section-label"><span class="section-num">01</span><div class="section-line"></div></div>
+    <h2>Hledání a výběr produktu</h2>
+    <p>Produkt je základ všeho. Špatný produkt nezachráníš ani skvělou reklamou.</p>
 
-    <div class="steps-grid">
-      <div class="step-card">
-        <div class="step-card-num">KROK 1</div>
-        <div class="step-card-title">Zákazník si objedná</div>
-        <div class="step-card-text">Na tvém e-shopu, za tvojí cenu.</div>
+    <h3>Kritéria pro výběr produktu</h3>
+    <div class="checklist">
+      <div class="check-item"><div class="check-icon">✓</div>Produkt už někdo úspěšně prodává v zahraničí → stačí ho převzít do Česka</div>
+      <div class="check-item"><div class="check-icon">✓</div>Řeší problém nebo se váže na silné emoce (rodina, mazlíčci)</div>
+      <div class="check-item"><div class="check-icon">✓</div>Vysoká marže 500 Kč+</div>
+      <div class="check-item"><div class="check-icon">✓</div>Dostatek obsahu (videa a fotky produktu)</div>
+    </div>
+
+    <h3>Metody hledání produktů</h3>
+
+    <div class="tool-card-expanded">
+      <div class="tool-card-expanded-header">
+        <div class="tool-icon">📣</div>
+        <div><div class="tool-info-name">A) Meta Ads Library</div></div>
+        <a href="https://www.facebook.com/ads/library" target="_blank" rel="noopener" style="margin-left:auto; font-size:12px; color:var(--gold);">Otevřít →</a>
       </div>
-      <div class="step-card">
-        <div class="step-card-num">KROK 2</div>
-        <div class="step-card-title">Objednáš u dodavatele</div>
-        <div class="step-card-text">Za nižší nákupní cenu — rozdíl je tvůj zisk.</div>
-      </div>
-      <div class="step-card">
-        <div class="step-card-num">KROK 3</div>
-        <div class="step-card-title">Dodavatel posílá zboží</div>
-        <div class="step-card-text">Přímo zákazníkovi. Ty nestahíš žádný sklad.</div>
-      </div>
-      <div class="step-card">
-        <div class="step-card-num">KROK 4</div>
-        <div class="step-card-title">Ty inkásuješ marži</div>
-        <div class="step-card-text">A škáluješ co funguje.</div>
+      <div class="tool-card-body">
+        <p>Zadej klíčová slova typu "Rated" nebo "50% off" a vyskočí ti spousta ecom značek.</p>
+        <p>➡️ Zapni filtr jen na videa – odstraníš tím obrázkové reklamy a spam.</p>
+        <p style="font-style:italic;">(Časem pochopíš, co tím myslím 😂)</p>
       </div>
     </div>
 
-    <div class="highlight">
-      <div class="highlight-icon">⚡</div>
-      <div class="highlight-body">
-        <p>Ano, stále to funguje. Třeba tenhle měsíc jsem se svou značkou udělal <strong>432 392 Kč</strong> – a nezačal jsem nijak jinak než ty.</p>
-        <p><strong>Musíš jen udělat první krok.</strong></p>
+    <div class="tool-card-expanded">
+      <div class="tool-card-expanded-header">
+        <div class="tool-icon">🎵</div>
+        <div><div class="tool-info-name">B) TikTok Shop</div></div>
+      </div>
+      <div class="tool-card-body">
+        <p>Použij nástroj jako <a href="https://www.kalodata.com" target="_blank" rel="noopener">Kalodata</a>, který ti ukáže nejprodávanější produkty na TikTok Shopu.</p>
+        <p>(Je placený, ale má i zdarma trial, kde ho můžeš vyzkoušet)</p>
+        <div class="bonus-box">
+          <div class="bonus-label">💡 Bonus</div>
+          Zkus do vyhledávání na TikToku napsat „TikTok Shop Products" – objeví se ti tvůrci, kteří propagují produkty z TikTok Shopu. Potom stačí otevřít jejich profily a podívat se, jaké produkty promují – většinou jich mají hned několik.
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- SECTION 2 -->
-  <div class="section" id="vyber-produktu">
-    <div class="section-label">
-      <span class="section-num">02</span>
-      <div class="section-line"></div>
-    </div>
-    <h2>Výběr produktu</h2>
-    <p>Produkt je základ všeho. Špatný produkt nezachráníš ani skvělou reklamou.</p>
+  <!-- 02 — ANALÝZA KONKURENCE -->
+  <div class="section" id="analyza-konkurence">
+    <div class="section-label"><span class="section-num">02</span><div class="section-line"></div></div>
+    <h2>Analýza konkurence</h2>
 
-    <h3>Co hledáš v produktu?</h3>
     <div class="checklist">
-      <div class="check-item"><div class="check-icon">✓</div>Řeší konkrétní problém nebo splňuje touhu</div>
-      <div class="check-item"><div class="check-icon">✓</div>Nejde snadno koupit v běžném obchodě</div>
-      <div class="check-item"><div class="check-icon">✓</div>Marže minimálně 3× nákupní cena</div>
-      <div class="check-item"><div class="check-icon">✓</div>Jde dobře ukázat na videu nebo fotce</div>
-      <div class="check-item"><div class="check-icon">✓</div>Není příliš sezónní</div>
+      <div class="check-item"><div class="check-icon">✓</div>Najdi svoji konkurenci pomocí Meta Ads Library a prozkoumej ji do hloubky.</div>
+      <div class="check-item"><div class="check-icon">✓</div>Studuj jejich reklamy, sociální sítě, weby.</div>
+      <div class="check-item"><div class="check-icon">✓</div>Zkus pochopit, proč jim to funguje – ne jen co dělají.</div>
+      <div class="check-item"><div class="check-icon">✓</div>Všechny poznatky si zapisuj – ať už na papír, do poznámek v PC, nebo kamkoli, kde ti to vyhovuje.</div>
+      <div class="check-item"><div class="check-icon">✓</div>Doporučuji si vytvořit profily tvých ideálních zákazníků – věk, pohlaví, problémy, nejistoty.</div>
     </div>
 
-    <h3>Kde hledat produkty?</h3>
-    <div class="tool-list">
-      <a href="https://www.aliexpress.com" class="tool-card" target="_blank" rel="noopener">
-        <div class="tool-icon">🛒</div>
-        <div>
-          <div class="tool-info-name">AliExpress</div>
-          <div class="tool-info-desc">Největší zdroj dropshipping produktů z Číny</div>
-        </div>
-        <div class="tool-arrow">→</div>
-      </a>
-      <a href="https://www.tiktok.com" class="tool-card" target="_blank" rel="noopener">
-        <div class="tool-icon">📱</div>
-        <div>
-          <div class="tool-info-name">TikTok / Instagram Reels</div>
-          <div class="tool-info-desc">Sleduj co se virálně sdílí — to jsou potenciální produkty</div>
-        </div>
-        <div class="tool-arrow">→</div>
-      </a>
+    <p>Šablonu na tvorbu ideálního zákazníka si stáhneš zde: <a href="#" onclick="document.getElementById('modalZakaznik').classList.add('open'); return false;">Otevřít šablonu →</a></p>
+  </div>
+
+  <!-- 03 — DODAVATEL -->
+  <div class="section" id="dodavatel">
+    <div class="section-label"><span class="section-num">03</span><div class="section-line"></div></div>
+    <h2>Dodavatel</h2>
+
+    <p>Na produkt si najdi dodavatele – do začátku klidně použij <a href="https://www.cjdropshipping.com" target="_blank" rel="noopener">CJ Dropshipping</a>. Stačí do vyhledávání zadat název produktu (v našem případě magnetic eyelashes) nebo jednoduše nahrát jeho fotku.</p>
+
+    <div class="highlight">
+      <div class="highlight-icon">💡</div>
+      <div class="highlight-body">
+        <p>Dodavatelů je samozřejmě víc — například <strong>Zendrop</strong>, <strong>AutoDS</strong>, <strong>Commercive</strong> nebo i privátní dodavatelé — většinou jsou výhodnější díky rychlé komunikaci, nižším cenám a rychlejší dopravě.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 — ESHOP -->
+  <div class="section" id="eshop">
+    <div class="section-label"><span class="section-num">04</span><div class="section-line"></div></div>
+    <h2>Tvorba e-shopu na Shopify</h2>
+
+    <p>Tvým cílem v tvorbě e-shopu je:</p>
+    <div class="checklist">
+      <div class="check-item"><div class="check-icon">✓</div>Postavit stránky, které nevypadají jako klasický dropshipping, ale jako reálná značka</div>
+      <div class="check-item"><div class="check-icon">✓</div>Přizpůsobit všechno ideálnímu zákazníkovi – fotky, texty, barvy</div>
     </div>
 
     <div class="highlight">
       <div class="highlight-icon">💡</div>
       <div class="highlight-body">
-        <p>Neprodáváš <em>odstraňovač chloupků</em> — prodáváš <em>hladkou pokožku bez podráždění</em>. Marketing je všechno.</p>
+        <p>Doporučuju si pak představit nákup z pozice tvého zákazníka a zeptat se sám sebe jestli bys z takového e-shopu nakoupil.</p>
       </div>
     </div>
-  </div>
 
-  <!-- SECTION 3 -->
-  <div class="section" id="eshop">
-    <div class="section-label">
-      <span class="section-num">03</span>
-      <div class="section-line"></div>
-    </div>
-    <h2>Tvorba e-shopu na Shopify</h2>
-    <p>Shopify je nejrozšířenější platforma pro dropshipping. Začít jde za hodiny, ne týdny.</p>
-
-    <h3>Klíčové věci na e-shopu</h3>
-    <div class="checklist">
-      <div class="check-item"><div class="check-icon">✓</div><strong>Produktové fotky a videa</strong> — kvalita rozhoduje</div>
-      <div class="check-item"><div class="check-icon">✓</div><strong>Popis zaměřený na benefity</strong>, ne jen technické parametry</div>
-      <div class="check-item"><div class="check-icon">✓</div><strong>Recenze a sociální důkaz</strong> — lidé kupují co kupují ostatní</div>
-      <div class="check-item"><div class="check-icon">✓</div><strong>Rychlost webu</strong> — každá sekunda čekání = ztracená konverze</div>
-      <div class="check-item"><div class="check-icon">✓</div><strong>Jasná nabídka</strong> — zákazník musí okamžitě pochopit co prodáváš a proč to chce</div>
+    <div class="badge-inline">
+      <div class="badge-inline-title">Jak začít?</div>
+      <ol>
+        <li>Zaregistruj se na <a href="https://www.shopify.com" target="_blank" rel="noopener">shopify.com</a></li>
+        <li>Stáhni si naši upravenou šablonu nebo použij shopify šablonu zdarma</li>
+        <li>Dokonči svůj první e-shop pak tam pokračuj dál</li>
+      </ol>
     </div>
 
-    <h3>Doporučené nástroje</h3>
-    <div class="tool-list">
-      <a href="https://www.shopify.com" class="tool-card" target="_blank" rel="noopener">
-        <div class="tool-icon">🏪</div>
-        <div>
-          <div class="tool-info-name">Shopify</div>
-          <div class="tool-info-desc">Platforma pro e-shop — začni se zkušební verzí zdarma</div>
-        </div>
-        <div class="tool-arrow">→</div>
-      </a>
-      <a href="https://clarity.microsoft.com" class="tool-card" target="_blank" rel="noopener">
-        <div class="tool-icon">👁</div>
-        <div>
-          <div class="tool-info-name">Microsoft Clarity</div>
-          <div class="tool-info-desc">Uvidíš co lidi na webu dělají a kde ztrácíš konverze</div>
-        </div>
-        <div class="tool-arrow">→</div>
-      </a>
-      <a href="https://pagespeed.web.dev" class="tool-card" target="_blank" rel="noopener">
-        <div class="tool-icon">⚡</div>
-        <div>
-          <div class="tool-info-name">PageSpeed Insights</div>
-          <div class="tool-info-desc">Zkontroluj rychlost svého webu</div>
-        </div>
-        <div class="tool-arrow">→</div>
-      </a>
+    <h3>Tipy na nástroje při tvorbě webu</h3>
+
+    <div class="tool-card-expanded">
+      <div class="tool-card-expanded-header">
+        <div class="tool-icon">🏷</div>
+        <div><div class="tool-info-name">Název značky</div></div>
+        <a href="https://namelix.com" target="_blank" rel="noopener" style="margin-left:auto; font-size:12px; color:var(--gold);">namelix.com →</a>
+      </div>
+      <div class="tool-card-body">
+        <p>Napiš klíčová slova do <a href="https://namelix.com" target="_blank" rel="noopener">namelix.com</a> spojená s produktem a generuj, dokud nenajdeš něco, co sedne.</p>
+      </div>
     </div>
 
-    <div class="img-placeholder">
-      <div class="img-placeholder-icon">🖼</div>
-      <div class="img-placeholder-text">Screenshot ukázkového e-shopu</div>
+    <div class="tool-card-expanded">
+      <div class="tool-card-expanded-header">
+        <div class="tool-icon">🌐</div>
+        <div><div class="tool-info-name">Doména a její dostupnost</div></div>
+        <a href="https://www.godaddy.com" target="_blank" rel="noopener" style="margin-left:auto; font-size:12px; color:var(--gold);">godaddy.com →</a>
+      </div>
+      <div class="tool-card-body">
+        <p>Koukni jestli je dostupná doména na <a href="https://www.godaddy.com" target="_blank" rel="noopener">GoDaddy</a> — mrkni na .cz, pokud bys s produktem měl větší vizi, tak doporučuji mrknout i na .com</p>
+      </div>
     </div>
+
+    <div class="tool-card-expanded">
+      <div class="tool-card-expanded-header">
+        <div class="tool-icon">🖼</div>
+        <div><div class="tool-info-name">Produktové obrázky</div></div>
+      </div>
+      <div class="tool-card-body">
+        <p>1. <a href="https://www.remove.bg" target="_blank" rel="noopener">remove.bg</a> — odstraňovač pozadí z fotek</p>
+        <p>2. <a href="https://picwish.com" target="_blank" rel="noopener">picwish.com</a> — zlepšení kvality fotek</p>
+        <p>3. <a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a> — pošli mu své produktové fotky a dej mu tenhle prompt:</p>
+        <p style="background:var(--bg); border:0.5px solid var(--w10); border-radius:8px; padding:10px 14px; font-style:italic; margin-top:8px;">"Zhodnoť tuto produktovou fotku, napiš co funguje a co bys naopak v rámci designu a případně i copywritingu vylepšil, mým ideálním zákazníkem je X (sem vložíš informace z vyplněné šablony na ideálního zákazníka)"</p>
+      </div>
+    </div>
+
+    <h3>Šablony reklam</h3>
+    <a href="https://www.canva.com/design/DAG3WS1D5KQ/3cQPY2JvmcjLqV9b-zRWWQ/edit" target="_blank" rel="noopener" class="tool-card">
+      <div class="tool-icon">🎨</div>
+      <div>
+        <div class="tool-info-name">Šablony reklam — Canva</div>
+        <div class="tool-info-desc">Stovky připravených designů k úpravě</div>
+      </div>
+      <div class="tool-arrow">→</div>
+    </a>
   </div>
 
   <!-- CTA MID -->
   <div class="cta-block">
     <h3>Chceš mě osobně provést celým procesem?</h3>
-    <p>Pomůžu ti získat <strong>první objednávku už do 14 dnů</strong> od spuštění e-shopu. Budu s tebou, dokud se to nepovede.</p>
+    <p>Budu s tebou spolupracovat, dokud nezískáš svoji první objednávku.</p>
     <a href="https://www.jakubvyhnalik.cz/prihlaska" class="cta-btn">Podat přihlášku do coachingu →</a>
   </div>
 
-  <!-- SECTION 4 -->
+  <!-- 05 — REKLAMY -->
   <div class="section" id="reklamy">
-    <div class="section-label">
-      <span class="section-num">04</span>
-      <div class="section-line"></div>
-    </div>
+    <div class="section-label"><span class="section-num">05</span><div class="section-line"></div></div>
     <h2>Placené reklamy</h2>
     <p>Máš web? Super. Teď reklamy. Bez nich zákazníci o tvém e-shopu nevědí.</p>
 
@@ -897,10 +405,10 @@
         </div>
         <div class="tool-arrow">→</div>
       </a>
-      <a href="https://www.vidmake.ai" class="tool-card" target="_blank" rel="noopener">
+      <a href="https://vmake.ai" class="tool-card" target="_blank" rel="noopener">
         <div class="tool-icon">🤖</div>
         <div>
-          <div class="tool-info-name">Vidmake.ai</div>
+          <div class="tool-info-name">Vmake</div>
           <div class="tool-info-desc">AI úprava jednotlivých klipů do reklam</div>
         </div>
         <div class="tool-arrow">→</div>
@@ -910,7 +418,7 @@
     <div class="highlight">
       <div class="highlight-icon">⚡</div>
       <div class="highlight-body">
-        <p>Ano, stále to funguje. Třeba tenhle měsíc jsem se svou značkou udělal <strong>432 392 Kč</strong> – a nezačal jsem nijak jinak než ty.</p>
+        <p>Na jednom ze svých e-shopů jsem udělal <strong>254 115 Kč</strong> – a nezačal jsem nijak jinak než ty.</p>
         <p><strong>Musíš jen udělat první krok.</strong></p>
       </div>
     </div>
@@ -920,15 +428,12 @@
       <div class="img-placeholder-text">Screenshot výsledků Facebook reklam</div>
     </div>
 
-    <p style="font-size:13px; color: var(--w40); font-style: italic;">Výsledky facebook reklam jednoho z mých dalších e-shopů. Vždy si spočítej veškeré náklady na produkt, ať víš kolik si můžeš dovolit utratit na reklamě za 1 nákup.</p>
+    <p style="font-size:13px; color: var(--w60); font-style: italic;">Výsledky facebook reklam jednoho z mých dalších e-shopů. Vždy si spočítej veškeré náklady na produkt, ať víš kolik si můžeš dovolit utratit na reklamě za 1 nákup.</p>
   </div>
 
-  <!-- SECTION 5 -->
+  <!-- 06 — SPUŠTĚNÍ -->
   <div class="section" id="spusteni">
-    <div class="section-label">
-      <span class="section-num">05</span>
-      <div class="section-line"></div>
-    </div>
+    <div class="section-label"><span class="section-num">06</span><div class="section-line"></div></div>
     <h2>Spuštění kampaně</h2>
     <p>Když máš vše připravené, zbývá jen nahrát reklamy a spustit je v Meta Ads Manageru.</p>
 
@@ -945,59 +450,53 @@
     <div class="highlight">
       <div class="highlight-icon">⚡</div>
       <div class="highlight-body">
-        <p>Chceš, abych tě <strong>osobně provedl celým procesem</strong> a pomohl ti získat <strong>první objednávku už do 14 dnů</strong> od spuštění e-shopu?</p>
+        <p>Chceš, abych tě <strong>osobně provedl celým procesem</strong> a pomohl ti získat svoji <strong>první objednávku?</strong></p>
         <p>Pošli <a href="https://www.jakubvyhnalik.cz/prihlaska"><strong>přihlášku do coachingu</strong></a> a probereme jestli by nám spolupráce dávala smysl.</p>
       </div>
     </div>
   </div>
 
+  <!-- CTA PO SPUŠTĚNÍ -->
+  <div style="text-align:center; margin: 0 0 48px;">
+    <a href="https://www.jakubvyhnalik.cz/prihlaska" class="cta-btn">Přihláška do coachingu →</a>
+  </div>
+
   <div class="divider"></div>
 
-  <!-- FAQ -->
+  <!-- 07 — FAQ -->
   <div class="section" id="faq">
-    <div class="section-label">
-      <span class="section-num">06</span>
-      <div class="section-line"></div>
-    </div>
+    <div class="section-label"><span class="section-num">07</span><div class="section-line"></div></div>
     <h2>Nejčastější otázky a obavy</h2>
 
     <div class="faq-list">
-
       <div class="faq-item">
         <button class="faq-q">„Dropshipping už nefunguje…" <span class="faq-arrow">▼</span></button>
         <div class="faq-a">Funguje. Jen se <strong>mění forma</strong>, jakou se dělá. AI nám extrémně pomohlo zrychlit a zefektivnit celý proces a je nutné se tomu zvládnout adaptovat.</div>
       </div>
-
       <div class="faq-item">
         <button class="faq-q">„Utratil jsem 1500 Kč za reklamy, ale bez objednávky…" <span class="faq-arrow">▼</span></button>
         <div class="faq-a">To je normální. V prvních dnech sleduj hlavně <strong>přidání do košíku</strong> a <strong>přechody k pokladně</strong> — znamená to, že tam je buyer intent. Analyzuj, která reklama má nejlepší metriky a zkus z ní udělat více podobných verzí. Pokud nemáš kliky → změň úhel reklamy. Pokud máš kliky, ale žádné konverze → zlepši web nebo nabídku. Doporučuju nástroj <a href="https://clarity.microsoft.com" target="_blank">Microsoft Clarity</a> – uvidíš co lidi na webu dělají.</div>
       </div>
-
       <div class="faq-item">
         <button class="faq-q">„Konkurence prodává levněji než já…" <span class="faq-arrow">▼</span></button>
         <div class="faq-a">To je jedno. Neprodáváš <em>odstraňovač chloupků</em> — prodáváš <em>hladkou pokožku bez podráždění</em>. Nejde o cenu, ale o <strong>marketing</strong>. Pokud dokážeš produkt odprezentovat lépe a prémiověji, získáš obrovskou výhodu. <strong>EMBARRASS THE COMPETITION.</strong></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-q">„Mám problém se Shopify Payments…" <span class="faq-arrow">▼</span></button>
         <div class="faq-a">Nikdy neslibuj přehnané benefity — přivoláš si refundy a chargebacky a riskuješ blok. V pokročilejší fázi doporučuju <a href="https://www.chargeback.io/" target="_blank">chargeback.io</a> — umí detekovat rizikové objednávky.</div>
       </div>
-
       <div class="faq-item">
         <button class="faq-q">„Lidi mi chodí na web, ale nenakupují…" <span class="faq-arrow">▼</span></button>
         <div class="faq-a">Zkus upravit nabídku: přidej <em>dárek zdarma</em>, <em>1+1 nabídku</em> nebo <em>časově omezenou akci</em>. Přidej víc důvěry — fotky, recenze, videa. Zkontroluj rychlost webu na <a href="https://pagespeed.web.dev/" target="_blank">PageSpeed Insights</a>.</div>
       </div>
-
       <div class="faq-item">
         <button class="faq-q">„Dlouhá doba dodání?" <span class="faq-arrow">▼</span></button>
         <div class="faq-a">Na otestování to stačí. A jakmile koncept funguje → naskladni produkt v Česku. To je ten moment, kdy z dropshipu začínáš budovat <strong>brand</strong>.</div>
       </div>
-
       <div class="faq-item">
         <button class="faq-q">„Nejde to rychle škálovat…" <span class="faq-arrow">▼</span></button>
         <div class="faq-a">Omyl. S důvěryhodným webem, dobrým produktem a silnou reklamou se dá dostat na <strong>solidní výsledky už během pár týdnů</strong>. Svoji značku jsem rozjel z nuly na 100 000 Kč za jediný měsíc. Nebylo to žádná zkratka — ale díky dobrému mentorovi můžeš všechny začátečnické chyby přeskočit.</div>
       </div>
-
     </div>
   </div>
 
@@ -1010,7 +509,6 @@
 
   <div class="divider"></div>
 
-  <!-- RESOURCES -->
   <div class="section">
     <h2 style="margin-bottom:20px;">Ostatní resources</h2>
     <div class="resource-list">
@@ -1029,7 +527,6 @@
 
 </main>
 
-<!-- FOOTER -->
 <footer class="footer">
   <span class="footer-copy">© 2025 Pupsity s.r.o. – Všechna práva vyhrazena.</span>
   <div class="footer-socials">
@@ -1045,6 +542,49 @@
   </div>
 </footer>
 
+<!-- MODAL — Ideální zákazník -->
+<div class="modal-overlay" id="modalZakaznik">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">Šablona — Ideální zákazník</span>
+      <button class="modal-close" onclick="document.getElementById('modalZakaznik').classList.remove('open')">✕</button>
+    </div>
+    <div class="modal-body">
+      <button class="modal-copy-btn" onclick="copyTemplate()">Zkopírovat šablonu</button>
+      <div class="modal-content" id="templateText">Jméno (fiktivní): Lucie
+Pohlaví: Žena
+Věk: 24 let
+Povolání / životní styl: Pracuje v kanceláři nebo studuje vysokou školu, aktivní na sociálních sítích, chodí na akce, párty a má ráda, když vypadá upraveně bez velké námahy.
+Zájmy: Móda, líčení, focení, beauty influenceri, večerní akce, udržovaná vizáž, cestování.
+
+💭 Problémy, které mu náš produkt vyřeší:
+• Neumí si lepit klasické řasy lepidlem – je to složité a špiní oční víčko.
+• Chce vypadat upraveně a mít výrazné oči i bez make-upu.
+• Nemá čas ráno trávit 30 minut u zrcadla.
+• Vadí jí umělé řasy z kosmetického salonu (drahé, ničí její vlastní).
+• Chce možnost si řasy sundat kdykoliv a znovu použít.
+
+💪 Cíle a motivace:
+• Cítit se krásně, sebevědomě a přitažlivě každý den.
+• Mít rychlé a snadné řešení pro perfektní look.
+• Ušetřit čas i peníze oproti salonním řasám.
+
+🚫 Překážky / obavy při nákupu:
+• Bojí se, že magnetické řasy nebudou držet.
+• Má strach, že budou vypadat nepřirozeně.
+• Neví, jestli se jí budou hodit tvarově / velikostně.
+• Má špatnou zkušenost s jinými značkami.
+
+❤️ Co ho osloví (emočně nebo vizuálně):
+• Reálné ukázky „před a po".
+• Video, jak snadno se nasazují.
+• Stylový, čistý a ženský design balení.
+• Důraz na opakované použití a kvalitu.
+• Recenze žen, které vypadají přirozeně a spokojeně.</div>
+    </div>
+  </div>
+</div>
+
 <script>
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -1054,6 +594,19 @@
       if (!isOpen) item.classList.add('open');
     });
   });
+
+  document.getElementById('modalZakaznik').addEventListener('click', function(e) {
+    if (e.target === this) this.classList.remove('open');
+  });
+
+  function copyTemplate() {
+    const text = document.getElementById('templateText').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('.modal-copy-btn');
+      btn.textContent = 'Zkopírováno ✓';
+      setTimeout(() => { btn.textContent = 'Zkopírovat šablonu'; }, 2000);
+    });
+  }
 </script>
 
 </body>
