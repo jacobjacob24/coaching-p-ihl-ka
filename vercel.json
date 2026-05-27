@@ -2,6 +2,7 @@
   "cleanUrls": true,
   "rewrites": [
     { "source": "/prihlaska", "destination": "/prihlaska.html" },
-    { "source": "/pruvodce", "destination": "/pruvodce.html" }
+    { "source": "/pruvodce", "destination": "/pruvodce.html" },
+    { "source": "/moje-cesta", "destination": "/moje-cesta.html" }
   ]
 }
