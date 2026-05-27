@@ -39,7 +39,6 @@
       line-height: 1.7;
     }
 
-    /* NAV */
     .topnav {
       position: sticky; top: 0; z-index: 100;
       background: rgba(15,15,15,0.92);
@@ -61,164 +60,61 @@
       color: var(--w100); text-decoration: none;
     }
 
-    /* PAGE */
-    .page {
-      max-width: 560px;
-      margin: 0 auto;
-      padding: 56px 24px 100px;
-    }
+    .page { max-width: 560px; margin: 0 auto; padding: 56px 24px 100px; }
 
-    /* HERO */
     .hero { margin-bottom: 64px; }
-
-    .hero-eyebrow {
-      font-family: var(--sans);
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 16px;
-    }
-
     .hero h1 {
       font-family: var(--sans); font-weight: 800;
       font-size: clamp(30px, 6vw, 44px);
       line-height: 1.08; letter-spacing: -0.035em;
-      color: var(--w100); margin-bottom: 20px;
+      color: var(--w100);
     }
 
-    .hero-lead {
-      font-size: 17px; color: var(--w60);
-      line-height: 1.7; font-weight: 300;
-      border-left: 2px solid var(--gold-border);
-      padding-left: 18px;
-    }
-
-    /* CHAPTERS */
     .chapters { display: flex; flex-direction: column; gap: 64px; margin-bottom: 72px; }
 
-    .chapter {}
-
-    .ch-meta {
-      display: flex; align-items: center; gap: 10px;
-      margin-bottom: 14px;
-    }
-
+    .ch-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
     .ch-num {
       font-family: var(--sans); font-size: 10px; font-weight: 700;
       color: var(--gold); letter-spacing: 0.1em;
       background: var(--gold-dim); border: 0.5px solid var(--gold-border);
       border-radius: 5px; padding: 2px 8px;
     }
-
     .ch-line { flex: 1; height: 0.5px; background: var(--w06); }
 
     .chapter h2 {
       font-family: var(--sans); font-weight: 800;
       font-size: 20px; letter-spacing: -0.02em;
-      color: var(--w100); line-height: 1.25;
-      margin-bottom: 14px;
+      color: var(--w100); line-height: 1.25; margin-bottom: 14px;
     }
-
-    .chapter p {
-      font-size: 15px; color: var(--w60);
-      line-height: 1.8; margin-bottom: 12px;
-    }
+    .chapter p { font-size: 15px; color: var(--w60); line-height: 1.8; margin-bottom: 12px; }
     .chapter p:last-of-type { margin-bottom: 0; }
     .chapter p strong { color: var(--w90, #efefef); font-weight: 500; }
 
-    /* PHOTO SLOT */
-    .photo-slot {
-      margin: 22px 0;
-      border-radius: 14px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .photo-slot img {
-      width: 100%;
-      display: block;
-      border-radius: 14px;
-      object-fit: cover;
-      max-height: 340px;
-    }
-
-    /* placeholder shown when image missing */
-    .photo-slot img[data-placeholder] {
-      display: none;
-    }
-
+    .photo-slot { margin: 22px 0; border-radius: 14px; overflow: hidden; position: relative; }
+    .photo-slot img { width: 100%; display: block; border-radius: 14px; object-fit: cover; max-height: 340px; }
     .photo-placeholder {
-      width: 100%;
-      height: 200px;
+      width: 100%; height: 200px;
       border: 1px dashed rgba(255,255,255,0.12);
       border-radius: 14px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
       background: var(--bg-lift);
     }
-
     .photo-placeholder-icon { font-size: 24px; opacity: 0.3; }
-    .photo-placeholder-text {
-      font-family: var(--sans); font-size: 11px;
-      color: var(--w20); letter-spacing: 0.08em;
-    }
+    .photo-placeholder-text { font-family: var(--sans); font-size: 11px; color: var(--w20); letter-spacing: 0.08em; }
 
-    /* photo caption */
-    .photo-caption {
-      font-size: 12px; color: var(--w40);
-      font-style: italic; margin-top: 8px;
-      padding: 0 4px;
-    }
-
-    /* PULL QUOTE */
-    .pull-quote {
-      margin: 24px 0;
-      padding: 20px 22px;
-      background: var(--gold-dim);
-      border: 0.5px solid var(--gold-border);
-      border-radius: 12px;
-    }
-    .pull-quote p {
-      font-size: 15px; color: var(--w80);
-      font-style: italic; line-height: 1.7;
-      margin: 0 !important;
-    }
-
-    /* SIGNATURE */
     .sign-off {
       padding-top: 32px;
       border-top: 0.5px solid var(--w06);
       margin-bottom: 24px;
       display: flex; align-items: center; gap: 16px;
     }
-
-    .sign-avatar {
-      width: 48px; height: 48px; border-radius: 50%;
-      overflow: hidden; border: 1.5px solid var(--gold-border);
-      flex-shrink: 0;
-    }
-    .sign-avatar img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: top;
-      transform: scale(1.5) translateY(5%);
-    }
-
-    .sign-text {}
+    .sign-avatar { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; border: 1.5px solid var(--gold-border); flex-shrink: 0; }
+    .sign-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; transform: scale(1.5) translateY(5%); }
     .sign-name { font-family: var(--sans); font-weight: 700; font-size: 15px; color: var(--w100); }
     .sign-sub { font-size: 13px; color: var(--w40); margin-top: 2px; }
 
-    /* CTA */
-    .cta-block {
-      background: var(--bg-card);
-      border: 0.5px solid var(--gold-border);
-      border-radius: 16px; padding: 32px; text-align: center;
-    }
-    .cta-block h3 {
-      font-family: var(--sans); font-weight: 800; font-size: 20px;
-      letter-spacing: -0.02em; color: var(--w100); margin-bottom: 10px;
-    }
+    .cta-block { background: var(--bg-card); border: 0.5px solid var(--gold-border); border-radius: 16px; padding: 32px; text-align: center; }
+    .cta-block h3 { font-family: var(--sans); font-weight: 800; font-size: 20px; letter-spacing: -0.02em; color: var(--w100); margin-bottom: 10px; }
     .cta-block p { font-size: 14px; color: var(--w60); margin-bottom: 24px; line-height: 1.65; }
     .cta-btn {
       display: inline-flex; align-items: center; gap: 10px;
@@ -230,7 +126,6 @@
     }
     .cta-btn:hover { opacity: 0.88; transform: translateY(-1px); text-decoration: none; }
 
-    /* FADE */
     .fade-up { opacity: 0; transform: translateY(14px); animation: fadeUp 0.5s ease forwards; }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
     .d1 { animation-delay: 0.05s; }
@@ -254,20 +149,16 @@
 
 <main class="page">
 
-  <!-- HERO -->
   <header class="hero fade-up d1">
     <h1>Moje cesta<br>v e-commerce</h1>
   </header>
 
   <div class="chapters fade-up d2">
 
-    <!-- 01 -->
     <div class="chapter">
       <div class="ch-meta"><span class="ch-num">01</span><div class="ch-line"></div></div>
-      <h2>Organický dropshipping — bez tušení co dělám</h2>
-      <p>Vůbec jsem nevěděl co dělám. Začínal jsem s organickým dropshippingem, který sice fungoval, ale byl <strong>extrémně nestabilní</strong> — spoléhal jsem jen na to, že mi algoritmus dá zhlédnutí na video a někdo nakoupí.</p>
-
-      <!-- FOTO: nahraď src="/cesta-01.jpg" za název svého souboru, nebo smaž celý photo-slot pokud fotku nemáš -->
+      <h2>Organický dropshipping — neměl jsem tušení co dělám</h2>
+      <p>Vůbec jsem nevěděl co dělám. Začínal jsem s organickým dropshippingem, který sice fungoval, ale byl <strong>extrémně nestabilní.</strong> V podstatě jsem spoléhal jen na to, že mi algoritmus dá zhlédnutí na video a někdo nakoupí. <strong> <hr> Po této zkušenosti bych organický dropshipping doporučil spíše jako doplňkový marketingový kanál, ale nikoli ne jako ten hlavní.</hr> </strong> </p>
       <div class="photo-slot">
         <div class="photo-placeholder">
           <div class="photo-placeholder-icon">📷</div>
@@ -277,12 +168,10 @@
       </div>
     </div>
 
-    <!-- 02 -->
     <div class="chapter">
       <div class="ch-meta"><span class="ch-num">02</span><div class="ch-line"></div></div>
-      <h2>Placené reklamy — a spálené savings</h2>
+      <h2>Placené reklamy a spálené savings</h2>
       <p>Po přibližně roce organiky jsem si uvědomil, že je potřeba šlápnout do placených reklam. První testy na Meta Ads a TikToku byly jen spálené peníze. Zkoušel jsem, ale výsledky nikde.</p>
-
       <div class="photo-slot">
         <div class="photo-placeholder">
           <div class="photo-placeholder-icon">📷</div>
@@ -292,13 +181,11 @@
       </div>
     </div>
 
-    <!-- 03 -->
     <div class="chapter">
       <div class="ch-meta"><span class="ch-num">03</span><div class="ch-line"></div></div>
-      <h2>Wolt v zimě na kole. A mekáč.</h2>
-      <p>Na základě toho jsem si musel najít brigádu, abych peníze vydělal zpět a mohl v reklamách pokračovat. <strong>Rozvážel jsem Wolt v zimě na kole a pracoval v McDonald's.</strong></p>
-      <p>Doteď to beru jako dostatek pracovní zkušenosti — a jen mě to utvrdilo v tom, co v životě chci dosáhnout.</p>
-
+      <h2>Wolt v zimě na kole a brigáda v mekáči</h2>
+      <p>Na základě toho jsem si musel najít brigádu, abych peníze vydělal zpět a mohl v reklamách pokračovat. <strong>Rozvážel jsem Wolt v zimě na kole a pracoval v mekáči.</strong></p>
+      <p>Doteď to beru jako dostatek pracovní zkušenosti a jen mě to utvrdilo v tom, co v životě chci dosáhnout.</p>
       <div class="photo-slot">
         <div class="photo-placeholder">
           <div class="photo-placeholder-icon">📷</div>
@@ -308,12 +195,10 @@
       </div>
     </div>
 
-    <!-- 04 -->
     <div class="chapter">
       <div class="ch-meta"><span class="ch-num">04</span><div class="ch-line"></div></div>
-      <h2>Pupsity — první produkt, první trakce</h2>
+      <h2>Pupsity — první produkt, první výsledky</h2>
       <p>Začal jsem testovat dál a přišel první větší úspěch. Chytil se mi první produkt — základ toho, co se později stalo značkou <strong>Pupsity</strong>. Začínalo to jako dropshipping, stále jsem o e-commerce skoro nic nevěděl a vše se musel učit za pochodu.</p>
-
       <div class="photo-slot">
         <div class="photo-placeholder">
           <div class="photo-placeholder-icon">📷</div>
@@ -323,12 +208,10 @@
       </div>
     </div>
 
-    <!-- 05 -->
     <div class="chapter">
       <div class="ch-meta"><span class="ch-num">05</span><div class="ch-line"></div></div>
-      <h2>Produkce do Česka — kancelář u rodičů</h2>
-      <p>Po zpětné vazbě od zákazníků a spoustě zkušeností jsem se rozhodl přesunout produkci do Česka — hlavně kvůli spokojenosti zákazníků a nižším nákladům. <strong>Začínal jsem u rodičů ve vyklizené místnosti.</strong></p>
-
+      <h2>Produkce do Česka, první kancelář u rodičů</h2>
+      <p>Po zpětné vazbě od zákazníků a spoustě zkušeností jsem se rozhodl přesunout produkci do Česka. Hlavně kvůli spokojenosti zákazníků a nižším nákladům na produkty. <strong>Začínal jsem u rodičů ve vyklizené místnosti.</strong></p>
       <div class="photo-slot">
         <div class="photo-placeholder">
           <div class="photo-placeholder-icon">📷</div>
@@ -338,12 +221,10 @@
       </div>
     </div>
 
-    <!-- 06 -->
     <div class="chapter">
       <div class="ch-meta"><span class="ch-num">06</span><div class="ch-line"></div></div>
-      <h2>První pronajatá kancelář — první zaměstnanci</h2>
+      <h2>První pronajatá kancelář a první zaměstnanci</h2>
       <p>Pár měsíců nato se podnikání začalo rozrůstat a přesunuli jsme se do první kanceláře. Setkal jsem se s <strong>první zkušeností s najímáním zaměstnanců</strong> a zodpovědností, kterou vše tohle nese.</p>
-
       <div class="photo-slot">
         <div class="photo-placeholder">
           <div class="photo-placeholder-icon">📷</div>
@@ -353,12 +234,10 @@
       </div>
     </div>
 
-    <!-- 07 -->
     <div class="chapter">
       <div class="ch-meta"><span class="ch-num">07</span><div class="ch-line"></div></div>
       <h2>Uzavření Pupsity — a pivot zpátky</h2>
-      <p>Po úspěšném Q4 jsem se zamyslel nad tím, co chci dělat dál, a rozhodl jsem se <strong>změnit strategii a začít kompletně od začátku</strong> — s tím rozdílem, že teď už mám spoustu zkušeností i kapitálu.</p>
-
+      <p>Po úspěšném Q4 jsem se zamyslel nad tím, co chci dělat dál a rozhodl jsem se <strong>změnit strategii a začít kompletně od začátku</strong> — s tím rozdílem, že teď už mám spoustu zkušeností i kapitálu.</p>
       <div class="photo-slot">
         <div class="photo-placeholder">
           <div class="photo-placeholder-icon">📷</div>
@@ -368,9 +247,21 @@
       </div>
     </div>
 
+    <div class="chapter">
+      <div class="ch-meta"><span class="ch-num">08</span><div class="ch-line"></div></div>
+      <h2>Aktuálně</h2>
+      <p>Dneska pracuji na nových e-shopech a s tím jsem se rozhodl začít svoji cestu natáčet, tvořit obsah a předávat zkušenosti, které jsem za ty roky nastřádal. </p>
+      <div class="photo-slot">
+        <div class="photo-placeholder">
+          <div class="photo-placeholder-icon">📷</div>
+          <div class="photo-placeholder-text">Sem přijde fotka — nahraď src v img tagu</div>
+        </div>
+        <!-- <img src="/cesta-08.jpg" alt="Aktuálně" /> -->
+      </div>
+    </div>
+
   </div>
 
-  <!-- SIGN OFF -->
   <div class="sign-off fade-up d3">
     <div class="sign-avatar">
       <img src="/foto.jpg" alt="Jakub Vyhnalik" />
@@ -381,7 +272,7 @@
     </div>
   </div>
 
-  <!-- CTA -->
+  <div class="cta-block fade-up d3">
     <h3>Chceš rozjet vlastní e-shop?</h3>
     <p>Pokud bys chtěl pomoct rozjet svůj první e-shop nebo škálovat aktuální, vyplň přihlášku pro spolupráci.</p>
     <a href="/prihlaska" class="cta-btn">Vyplnit přihlášku →</a>
