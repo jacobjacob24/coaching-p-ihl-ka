@@ -1,8 +1,5 @@
 {
   "cleanUrls": true,
-  "redirects": [
-    { "source": "/", "destination": "/prihlaska" }
-  ],
   "rewrites": [
     { "source": "/prihlaska", "destination": "/prihlaska.html" },
     { "source": "/pruvodce", "destination": "/pruvodce.html" }
